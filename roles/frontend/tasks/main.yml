@@ -1,0 +1,33 @@
+- name: nginx setup
+  ansible.builtin.yum:
+    name: nginx
+    state: installed
+
+
+- name: Start the nginx service
+  ansible.builtin.systemd:
+    state: started
+    enabled: true
+    name: nginx
+
+- name: Deleting the html content
+  ansible.builtin.file:
+    path: /usr/share/nginx/html/
+    state: absent
+
+- name: Unarchive a zip file for frontend
+  ansible.builtin.unarchive:
+    src: https://roboshop-artifacts.s3.amazonaws.com/{{ component }}.zip
+    dest: /usr/share/nginx/html/
+    remote_src: yes
+
+- name: Template a file to /etc/nginx/default.d/roboshop.conf
+  ansible.builtin.template:
+    src: roboshop.conf
+    dest: /etc/nginx/default.d/roboshop.conf
+
+
+- name: Start the service
+  ansible.builtin.systemd:
+    state: restarted
+    name: nginx

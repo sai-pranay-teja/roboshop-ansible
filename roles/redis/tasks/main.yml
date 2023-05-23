@@ -1,0 +1,33 @@
+- name: Install the redis from repo
+  ansible.builtin.yum:
+    name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+    state: present
+    disable_gpg_check: yes
+
+- name: Enabling redis
+  ansible.builtin.dnf:
+    name: ' redis:remi-6.2'
+    state: present
+
+
+- name: Installation of Erlang
+  ansible.builtin.yum:
+    state: installed
+    name: redis
+
+
+- name: Replace 127.0.0.1 to 0.0.0.0
+  ansible.builtin.replace:
+    path: 
+      - /etc/redis.conf
+      - /etc/redis/redis.conf
+    regexp: '127.0.0.1'
+    replace: '0.0.0.0'
+
+  
+
+- name: Start the service
+  ansible.builtin.systemd:
+    state: started
+    enabled: true
+    name: redis

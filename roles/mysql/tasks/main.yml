@@ -1,0 +1,29 @@
+- name: Copy repo files
+  ansible.builtin.copy:
+    src: mysql.repo
+    dest: /etc/yum.repos.d/mysql.repo
+
+- name: Disabling MySQL
+  ansible.builtin.shell: dnf module disable mysql -y
+
+- name: Installation of MySQL
+  ansible.builtin.yum:
+    state: installed
+    name: mysql-community-server
+
+
+- name: Start the service
+  ansible.builtin.systemd:
+    state: started
+    enabled: true
+    name: mysqld
+
+- name: Setting Password for MySQL
+  ansible.builtin.shell: mysql_secure_installation --set-root-pass RoboShop@1
+  ignore_errors: yes
+
+- name: Restart the service
+  ansible.builtin.systemd:
+    state: restarted
+    name: mysqld
+    

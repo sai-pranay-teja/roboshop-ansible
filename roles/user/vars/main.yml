@@ -1,0 +1,2 @@
+component: user
+db_type: mongo

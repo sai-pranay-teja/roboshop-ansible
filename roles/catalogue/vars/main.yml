@@ -1,0 +1,2 @@
+component: catalogue
+db_type: mongo
