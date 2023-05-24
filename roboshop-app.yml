@@ -1,4 +1,5 @@
 name: Running roboshop components
 hosts: all
+become: true
 roles:
   - "{{ component }}"
