@@ -12,8 +12,8 @@
 
 - name: Deleting the html content
   ansible.builtin.file:
-    path: /usr/share/nginx/html/
-    state: absent
+    path: /usr/share/nginx/html
+    state: directory
 
 - name: Unarchive a zip file for frontend
   ansible.builtin.unarchive:
