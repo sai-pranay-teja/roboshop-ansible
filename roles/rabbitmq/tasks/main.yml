@@ -8,8 +8,8 @@
   ansible.builtin.yum:
     state: installed
     name: 
-      - erlang
       - rabbitmq-server
+      - erlang
 
 - name: Start the service
   ansible.builtin.systemd:
