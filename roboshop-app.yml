@@ -1,24 +1,5 @@
-# - name: Running roboshop components
-#   hosts: all
-#   become: true
-#   tasks:
-#     - amazon.aws
-#   # roles:
-#   #   - "{{ component }}"
-
-
-# - name: lookup ssm parameter store in the current region
-#   hosts: all
-#   debug: msg="{{ lookup('aws_ssm', 'Hello' ) }}"
-
-
-- name: Print the gateway for each host when defined
+- name: Running roboshop components
   hosts: all
-  tasks:
-    - name: Print
-      ansible.builtin.debug:
-        msg: "{{ lookup('aws_ssm', 'Hello', region='us-east-1' ) }}"
-
-# - name: lookup ssm parameter store in the current region
-#   hosts: all
-#   debug: msg="pranay"
+  become: true
+  roles:
+    - "{{ component }}"
