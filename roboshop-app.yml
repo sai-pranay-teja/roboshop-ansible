@@ -14,9 +14,8 @@
 
 - name: Print the gateway for each host when defined
   hosts: all
-  ansible.builtin.debug:
-    msg: 
-    - "pranay"
+  debug:
+    msg: "sdf"
 
 # - name: lookup ssm parameter store in the current region
 #   hosts: all
