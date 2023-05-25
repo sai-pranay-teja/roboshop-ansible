@@ -8,7 +8,7 @@
 
 - name: App Pre-requisites
   ansible.builtin.import_tasks:
-    file: app-prereq.yml
+    file: basic_setup.yml
 
 - name: Install Python Dependencies
   ansible.builtin.pip:
@@ -22,7 +22,7 @@
 
 - name: SystemD Setup
   ansible.builtin.import_tasks:
-    file: systemd-setup.yml
+    file: systemd_setup.yml
 
 
 
