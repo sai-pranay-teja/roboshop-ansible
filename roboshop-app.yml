@@ -8,4 +8,5 @@
 
 
 - name: lookup ssm parameter store in the current region
+  hosts: all
   debug: msg="{{ lookup('aws_ssm', 'Hello' ) }}"
