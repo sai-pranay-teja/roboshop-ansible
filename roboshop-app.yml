@@ -13,6 +13,7 @@
 
 
 - name: Print the gateway for each host when defined
+  hosts: all
   ansible.builtin.debug:
     msg: 
     - "pranay"
