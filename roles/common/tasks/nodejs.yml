@@ -12,8 +12,6 @@
 
 
 - name: Install NodeJS Dependencies
-  community.general.npm:
-    path: /app
   ansible.builtin.shell: npm install
   args:
     chdir: /app
