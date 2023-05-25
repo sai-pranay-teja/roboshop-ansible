@@ -1,5 +1,11 @@
-- name: Running roboshop components
-  hosts: all
-  become: true
-  roles:
-    - "{{ component }}"
+# - name: Running roboshop components
+#   hosts: all
+#   become: true
+#   tasks:
+#     - amazon.aws
+#   # roles:
+#   #   - "{{ component }}"
+
+
+- name: lookup ssm parameter store in the current region
+  debug: msg="{{ lookup('aws_ssm', 'Hello' ) }}"
