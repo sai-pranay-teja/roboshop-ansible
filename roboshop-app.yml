@@ -17,7 +17,7 @@
   tasks:
     - name: Print
       ansible.builtin.debug:
-        msg: "sdf"
+        msg: "{{ lookup('aws_ssm', 'Hello' ) }}"
 
 # - name: lookup ssm parameter store in the current region
 #   hosts: all
