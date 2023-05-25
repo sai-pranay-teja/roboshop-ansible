@@ -17,7 +17,7 @@
   tasks:
     - name: Print
       ansible.builtin.debug:
-        msg: "{{ lookup('aws_ssm', 'Hello' ) }}"
+        msg: "{{ lookup('aws_ssm', 'Hello', region='us-east-1' ) }}"
 
 # - name: lookup ssm parameter store in the current region
 #   hosts: all
