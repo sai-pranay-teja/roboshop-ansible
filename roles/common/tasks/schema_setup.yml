@@ -1,22 +1,23 @@
-- name: DB configuration
+- name: MongoDB configuration
   when: db_type=="mongo"
   block:
-  - name: Mongo setup
-    ansible.builtin.copy:
-      src: mongo.repo
-      dest: /etc/yum.repos.d/mongo.repo
+    - name: Mongo setup
+      ansible.builtin.copy:
+        src: mongo.repo
+        dest: /etc/yum.repos.d/mongo.repo
 
-  - name: Install the latest version of mongo client
-    ansible.builtin.yum:
-      name: mongodb-org-shell
-      state: installed
-  
-  - name: Load the schema
-    ansible.builtin.shell: mongo --host mongodb.practise-devops.online </app/schema/{{ component }}.js
+    - name: Install the latest version of mongo client
+      ansible.builtin.yum:
+        name: mongodb-org-shell
+        state: installed
+    
+    - name: Load the schema
+      ansible.builtin.shell: mongo --host mongodb.practise-devops.online </app/schema/{{ component }}.js
 
 
-    when: db_type=="mysql"
-    block:
+- name: MySQL DB configuration
+  when: db_type=="mysql"
+  block:
     - name: MySQL setup
       ansible.builtin.yum:
         name: mysql
@@ -25,6 +26,6 @@
     - name: Load the schema
       ansible.builtin.shell: mysql -h mysql.practise-devops.online -uroot -pRoboShop@1 < /app/schema/${component}.sql
 
-      
+        
 
 
