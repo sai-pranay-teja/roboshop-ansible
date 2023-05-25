@@ -14,4 +14,4 @@
 
 - name: lookup ssm parameter store in the current region
   hosts: all
-  ansible.builtin.debug: msg="pranay"
+  debug: msg="pranay"
