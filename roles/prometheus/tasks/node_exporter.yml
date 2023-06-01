@@ -1,0 +1,13 @@
+- name: Unarchive a file that needs to be downloaded (added in 2.0)
+  ansible.builtin.unarchive:
+    src: "{{ node_exporter_url }}"
+    dest: /opt
+    remote_src: yes
+
+
+- name: Restart the service
+  ansible.builtin.systemd:
+    state: restarted
+    daemon-reload: true
+    enabled: yes
+    name: node_exporter

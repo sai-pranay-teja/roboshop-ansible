@@ -1,0 +1,8 @@
+- name: Import tasks for prometheus
+  ansible.builtin.import_tasks:
+    file: server.yml
+
+
+- name: Import tasks for node exporter
+  ansible.builtin.import_tasks:
+    file: node_exporter.yml

@@ -1,0 +1,9 @@
+- name: Copying prometheus.yml file to a directory
+  ansible.builtin.template:
+    src: prometheus.yml
+    dest: /opt/prometheus/prometheus.yml
+
+- name: Restart the service
+  ansible.builtin.systemd:
+    state: restarted
+    name: prometheus

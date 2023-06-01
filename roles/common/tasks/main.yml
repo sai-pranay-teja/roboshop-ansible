@@ -1,2 +1,10 @@
 - name: Setting the hostname
   ansible.builtin.shell: set-hostname {{ component }}
+
+
+
+
+- name: Importing prometheus role, node exporter tasks
+  ansible.builtin.role:
+    name: prometheus
+    tasks_from: node_exporter
