@@ -8,7 +8,7 @@ After=network-online.target
 Type=simple
 Restart=on-failure
 ExecStart=/opt/{{node_exporter_dir}}/node_exporter \
-  --web.listen-address=:9200
+  --web.listen-address=:9100
 
 [Install]
 WantedBy=multi-user.target
