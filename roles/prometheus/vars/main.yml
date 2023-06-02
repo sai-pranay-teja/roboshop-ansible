@@ -1,2 +1,15 @@
 node_exporter_url: https://github.com/prometheus/node_exporter/releases/download/v1.0.1/node_exporter-1.0.1.linux-amd64.tar.gz
 node_exporter_dir: "{{ node_exporter_url | split('/') | last | regex_replace('.tar.gz','')}}"
+
+components:
+  - { name: cart, service_name: cart }
+  - { name: catalogue, service_name: catalogue }
+  - { name: frontend, service_name: nginx }
+  - { name: user, service_name: user }
+  - { name: shipping, service_name: shipping }
+  - { name: payment, service_name: payment }
+
+
+alert_files:
+ - service_down_alerts.yml
+ - cpu_data.yml
