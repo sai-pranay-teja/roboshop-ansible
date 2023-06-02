@@ -12,8 +12,9 @@ alerting:
           # - alertmanager:9093
 
 # Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
-{% files in alert_files %}
+
 rule_files:
+{% files in alert_files %}
   - {{ files }}
 {% endfor %}
 
