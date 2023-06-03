@@ -1,0 +1,22 @@
+route:
+  group_by: ['alertname']
+  group_wait: 30s
+  group_interval: 5m
+  repeat_interval: 1h
+  receiver: "email"
+receivers:
+  - name: "email"
+    email_configs:
+      - to: algonox1.1@gmail.com
+        from: algonox1.1@gmail.com
+        smarthost: "email-smtp.us-east-1.amazonaws.com:587"
+        auth_username: "AKIAYO5PAMKJILA2KOPP"
+        auth_password: "BPyV/J0/K2+zLXl1XCrLrAYcjJrefxzw+eQLMtfc5PnX"
+        require_tls: true
+inhibit_rules:
+  - source_match:
+      severity: 'critical'
+    target_match:
+      severity: 'warning'
+    equal: ['alertname', 'dev', 'instance']
+
