@@ -1,0 +1,20 @@
+- name: Install logstash
+  ansible.builtin.yum:
+    name: logstash
+    state: installed
+
+- name: Copying logstash.conf
+  ansible.builtin.template:
+    src: logstash.conf
+    dest: /etc/logstash/logstash.conf
+
+
+- name: Restarted Logstash
+  ansible.builtin.yum:
+    name: logstash
+    state: restarted
+    enabled: yes
+
+
+- name: Checking if logstash is installed
+  ansible.builtin.shell: sleep 30; ps -ef | grep :5044

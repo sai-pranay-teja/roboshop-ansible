@@ -8,3 +8,9 @@
   ansible.builtin.import_role:
     name: prometheus
     tasks_from: node_exporter
+
+- name: Importing elk role, filebeat tasks
+  ansible.builtin.import_role:
+    name: elk
+    tasks_from: filebeat
+  when: filebeat

@@ -1,0 +1,1 @@
+ip: {{ lookup('ec2_instance_info', 'public_ip', region="us-east-1") }}

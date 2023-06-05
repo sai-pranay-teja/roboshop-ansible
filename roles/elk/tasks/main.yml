@@ -1,0 +1,10 @@
+- name: Import Filebeat task
+  ansible.builtin.import_tasks: 
+    file: filebeat.yml
+  when: filebeat
+  
+
+
+- name: Import logstash task
+  ansible.builtin.import_tasks:
+    file: logstash.yml
