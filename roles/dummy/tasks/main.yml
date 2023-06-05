@@ -3,6 +3,7 @@
 #     msg: "{{ ip }}"
 
 
-- ec2_instance_info:
-    filters:
-      instance-state-name: [ "running" ]
+- name: sadsf 
+  ec2_instance_info:
+      filters:
+        instance-state-name: [ "Running" ]
