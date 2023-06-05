@@ -1,3 +1,8 @@
-- name: Public IP
-  ansible.builtin.debug:
-    msg: "{{ ip }}"
+# - name: Public IP
+#   ansible.builtin.debug:
+#     msg: "{{ ip }}"
+
+
+- ec2_instance_info:
+    filters:
+      instance-state-name: [ "running" ]
