@@ -10,7 +10,7 @@
 
 
 - name: Restarted Logstash
-  ansible.builtin.yum:
+  ansible.builtin.systemd:
     name: logstash
     state: restarted
     enabled: yes
