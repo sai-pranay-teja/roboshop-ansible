@@ -1,7 +1,7 @@
 - name: Import Filebeat task
   ansible.builtin.import_tasks: 
     file: filebeat.yml
-  #when: filebeat
+  when: filebeat
   
 
 
