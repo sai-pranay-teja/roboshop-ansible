@@ -150,7 +150,7 @@ setup.kibana:
 
 # ------------------------------ Logstash Output -------------------------------
 output.logstash:
-  hosts: ["localhost:5044"]
+  hosts: ["54.197.162.33:5044"]
 
   # Optional SSL. By default is off.
   # List of root certificates for HTTPS server verifications
