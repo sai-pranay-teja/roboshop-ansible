@@ -24,6 +24,7 @@ groups:
     for: 30s
     labels:
       severity: critical
+      appName: test
     annotations:
       summary: Service Down on Some Server 
   {% endfor %}
