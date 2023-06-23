@@ -13,6 +13,7 @@
 #       summary: Service Down on Some Server - {{ component.name }}.service
 #   {% endfor %}
 
+
 groups:
 - name: roboshop-service-alerts
   rules:
