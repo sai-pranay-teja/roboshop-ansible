@@ -3,11 +3,11 @@
     src: prometheus.yml
     dest: /opt/prometheus/prometheus.yml
 
-# - name: Alert rules
-#   ansible.builtin.template:
-#     src: "{{ item }}"
-#     dest: /opt/prometheus/{{ item }}
-#   loop: "{{ alert_files }}"
+- name: Alert rules
+  ansible.builtin.template:
+    src: "{{ item }}"
+    dest: /opt/prometheus/{{ item }}
+  loop: "{{ alert_files }}"
 
 - name: Restart the service
   ansible.builtin.systemd:
