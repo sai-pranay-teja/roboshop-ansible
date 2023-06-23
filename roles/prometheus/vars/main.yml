@@ -6,11 +6,11 @@ node_exporter_url: https://github.com/prometheus/node_exporter/releases/download
 node_exporter_dir: "{{ node_exporter_url | split('/') | last | regex_replace('.tar.gz','')}}"
 
 components:
-  - { name: '{{env}}-cart-asg', service_name: cart }
-  - { name: '{{env}}-catalogue-asg', service_name: catalogue }
-  - { name: '{{env}}-frontend-asg', service_name: nginx }
-  - { name: '{{env}}-user-asg', service_name: user }
-  - { name: '{{env}}-shipping-asg', service_name: shipping }
-  - { name: '{{env}}-payment-asg', service_name: payment }
+  - { name: dev-cart-asg, service_name: cart }
+  - { name: dev-catalogue-asg, service_name: catalogue }
+  - { name: dev-frontend-asg, service_name: nginx }
+  - { name: dev-user-asg, service_name: user }
+  - { name: dev-shipping-asg, service_name: shipping }
+  - { name: dev-payment-asg, service_name: payment }
 
 
