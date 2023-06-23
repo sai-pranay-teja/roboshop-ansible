@@ -7,8 +7,7 @@ After=network-online.target
 [Service]
 Type=simple
 Restart=on-failure
-ExecStart=/opt/{{node_exporter_dir}}/node_exporter \
-  --web.listen-address=:9100 --collector.systemd
+ExecStart=/opt/{{node_exporter_dir}}/node_exporter --collector.systemd
 
 [Install]
 WantedBy=multi-user.target
