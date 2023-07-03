@@ -1,3 +1,4 @@
 component: frontend
 filebeat: true
 log_path: /var/log/nginx/access.log
+app_version: "{{ lookup('amazon.aws.aws_ssm', '{{env}}.{{component}}.app_version', region='us-east-1' ) }}"
