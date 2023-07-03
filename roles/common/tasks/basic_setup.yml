@@ -13,10 +13,20 @@
     path: /app
     state: directory
 
-- name: Download zip files
+
+#Nexus Downloand
+- name: Download zip files from Nexus
   ansible.builtin.unarchive:
-    src: https://roboshop-artifacts.s3.amazonaws.com/{{ component }}.zip
+    src: http://admin:admin123@{{env}}-nexus.practise-devops.online:8081/repository/{{component}}/{{component}}-{{app_version}}.zip
     dest: /app
     remote_src: yes
+
+
+# S3 Download
+# - name: Download zip files from S3
+#   ansible.builtin.unarchive:
+#     src: https://roboshop-artifacts.s3.amazonaws.com/{{ component }}.zip
+#     dest: /app
+#     remote_src: yes
 
 
