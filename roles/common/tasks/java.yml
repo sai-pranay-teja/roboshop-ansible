@@ -13,10 +13,10 @@
     name: maven
     state: installed
 
-- name: Install Maven Dependencies
-  ansible.builtin.shell: mvn clean package; mv target/{{component}}-1.0.jar {{component}}.jar
-  args:
-    chdir: /app
+# - name: Install Maven Dependencies
+#   ansible.builtin.shell: mvn clean package; mv target/{{component}}-1.0.jar {{component}}.jar
+#   args:
+#     chdir: /app
 
 - name: Import the schema_setup task
   ansible.builtin.import_tasks:
