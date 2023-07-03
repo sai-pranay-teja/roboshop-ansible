@@ -1,3 +1,3 @@
 @Library('roboshop') _
 
-Jenkins-Deployment()
+jenkins_Deployment()
