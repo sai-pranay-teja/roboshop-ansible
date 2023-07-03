@@ -17,7 +17,7 @@
 
 - name: Unarchive a zip file for frontend
   ansible.builtin.unarchive:
-    src: https://roboshop-artifacts.s3.amazonaws.com/{{ component }}.zip
+    src: http://{{ lookup('amazon.aws.aws_ssm', '{{env}}.nexus.user', region='us-east-1' ) }}:{{ lookup('amazon.aws.aws_ssm', '{{env}}.nexus.pass', region='us-east-1' ) }}@{{env}}-nexus.practise-devops.online:8081/repository/{{component}}/{{component}}-{{app_version}}.zip
     dest: /usr/share/nginx/html/
     remote_src: yes
 
